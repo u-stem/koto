@@ -59,8 +59,7 @@ impl Project {
 
     /// Save project to file
     pub fn save(&mut self, path: PathBuf) -> Result<(), std::io::Error> {
-        let json = serde_json::to_string_pretty(self)
-            .map_err(|e| std::io::Error::new(std::io::ErrorKind::Other, e))?;
+        let json = serde_json::to_string_pretty(self).map_err(std::io::Error::other)?;
         std::fs::write(&path, json)?;
         self.path = Some(path);
         self.modified = false;
@@ -70,8 +69,7 @@ impl Project {
     /// Load project from file
     pub fn load(path: PathBuf) -> Result<Self, std::io::Error> {
         let json = std::fs::read_to_string(&path)?;
-        let mut project: Project = serde_json::from_str(&json)
-            .map_err(|e| std::io::Error::new(std::io::ErrorKind::Other, e))?;
+        let mut project: Project = serde_json::from_str(&json).map_err(std::io::Error::other)?;
         project.path = Some(path);
         project.modified = false;
         Ok(project)

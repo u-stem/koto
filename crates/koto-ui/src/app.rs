@@ -166,7 +166,7 @@ impl eframe::App for KotoApp {
                     egui::vec2(meter_width, meter_height),
                     egui::Sense::hover(),
                 );
-                let meter_level = (self.peak_meters.0 * meter_width) as f32;
+                let meter_level = self.peak_meters.0 * meter_width;
                 ui.painter().rect_filled(rect, 2.0, self.theme.surface);
                 let mut filled_rect = rect;
                 filled_rect.set_width(meter_level);
@@ -184,7 +184,7 @@ impl eframe::App for KotoApp {
                     egui::vec2(meter_width, meter_height),
                     egui::Sense::hover(),
                 );
-                let meter_level = (self.peak_meters.1 * meter_width) as f32;
+                let meter_level = self.peak_meters.1 * meter_width;
                 ui.painter().rect_filled(rect, 2.0, self.theme.surface);
                 let mut filled_rect = rect;
                 filled_rect.set_width(meter_level);

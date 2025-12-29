@@ -186,19 +186,9 @@ impl StereoFrame {
 }
 
 /// Audio format specification
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default, Serialize, Deserialize)]
 pub struct AudioFormat {
     pub sample_rate: SampleRate,
     pub channels: ChannelCount,
     pub buffer_size: BufferSize,
-}
-
-impl Default for AudioFormat {
-    fn default() -> Self {
-        Self {
-            sample_rate: SampleRate::default(),
-            channels: ChannelCount::default(),
-            buffer_size: BufferSize::default(),
-        }
-    }
 }
