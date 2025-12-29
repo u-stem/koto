@@ -1,6 +1,6 @@
 //! Audio processor traits
 
-use crate::types::{AudioBuffer, MidiEvent, SampleRate, Tempo, TimeSignature, SamplePosition};
+use crate::types::{AudioBuffer, MidiEvent, SamplePosition, SampleRate, Tempo, TimeSignature};
 
 /// Context passed to audio processors during processing
 pub struct ProcessContext<'a> {

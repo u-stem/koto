@@ -1,9 +1,9 @@
 //! Core types for Koto DAW
 
 mod audio;
-mod time;
 mod midi;
+mod time;
 
 pub use audio::*;
-pub use time::*;
 pub use midi::*;
+pub use time::*;

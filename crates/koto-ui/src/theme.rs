@@ -1,6 +1,6 @@
 //! UI theming
 
-use egui::{Color32, Visuals, Style, Rounding, Stroke};
+use egui::{Color32, Rounding, Stroke, Style, Visuals};
 
 /// Koto dark theme colors
 pub struct KotoTheme {
@@ -38,14 +38,14 @@ impl KotoTheme {
             warning: Color32::from_rgb(241, 196, 15),
             error: Color32::from_rgb(231, 76, 60),
             track_colors: vec![
-                Color32::from_rgb(74, 144, 226),   // Blue
-                Color32::from_rgb(46, 204, 113),   // Green
-                Color32::from_rgb(155, 89, 182),   // Purple
-                Color32::from_rgb(241, 196, 15),   // Yellow
-                Color32::from_rgb(231, 76, 60),    // Red
-                Color32::from_rgb(26, 188, 156),   // Teal
-                Color32::from_rgb(230, 126, 34),   // Orange
-                Color32::from_rgb(52, 73, 94),     // Dark blue
+                Color32::from_rgb(74, 144, 226), // Blue
+                Color32::from_rgb(46, 204, 113), // Green
+                Color32::from_rgb(155, 89, 182), // Purple
+                Color32::from_rgb(241, 196, 15), // Yellow
+                Color32::from_rgb(231, 76, 60),  // Red
+                Color32::from_rgb(26, 188, 156), // Teal
+                Color32::from_rgb(230, 126, 34), // Orange
+                Color32::from_rgb(52, 73, 94),   // Dark blue
             ],
         }
     }

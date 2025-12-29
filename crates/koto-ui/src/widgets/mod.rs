@@ -1,9 +1,9 @@
 //! Custom UI widgets
 
-pub mod waveform;
-pub mod meter;
 pub mod knob;
+pub mod meter;
+pub mod waveform;
 
-pub use waveform::*;
-pub use meter::*;
 pub use knob::*;
+pub use meter::*;
+pub use waveform::*;

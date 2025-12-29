@@ -1,13 +1,15 @@
 //! Time representation types
 
-use serde::{Deserialize, Serialize};
 use super::SampleRate;
+use serde::{Deserialize, Serialize};
 
 /// Ticks per quarter note (PPQ) - standard MIDI resolution
 pub const TICKS_PER_QUARTER_NOTE: i32 = 960;
 
 /// Position in samples (absolute)
-#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default, Serialize, Deserialize)]
+#[derive(
+    Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default, Serialize, Deserialize,
+)]
 pub struct SamplePosition(pub i64);
 
 impl SamplePosition {

@@ -157,10 +157,7 @@ impl AudioBuffer {
 
     /// Get the peak level (maximum absolute value)
     pub fn peak(&self) -> Sample {
-        self.samples
-            .iter()
-            .map(|s| s.abs())
-            .fold(0.0, f32::max)
+        self.samples.iter().map(|s| s.abs()).fold(0.0, f32::max)
     }
 }
 

@@ -67,7 +67,7 @@ impl MeterWidget {
 
         // Color based on level
         let color = if self.level > 0.9 {
-            Color32::from_rgb(231, 76, 60)  // Red
+            Color32::from_rgb(231, 76, 60) // Red
         } else if self.level > 0.7 {
             Color32::from_rgb(241, 196, 15) // Yellow
         } else {
@@ -80,7 +80,10 @@ impl MeterWidget {
         if self.peak > 0.01 {
             let peak_y = rect.bottom() - rect.height() * self.peak;
             painter.line_segment(
-                [egui::pos2(rect.left(), peak_y), egui::pos2(rect.right(), peak_y)],
+                [
+                    egui::pos2(rect.left(), peak_y),
+                    egui::pos2(rect.right(), peak_y),
+                ],
                 (2.0, Color32::WHITE),
             );
         }
@@ -89,7 +92,10 @@ impl MeterWidget {
         for i in 0..=10 {
             let y = rect.top() + rect.height() * (i as f32 / 10.0);
             painter.line_segment(
-                [egui::pos2(rect.right() - 3.0, y), egui::pos2(rect.right(), y)],
+                [
+                    egui::pos2(rect.right() - 3.0, y),
+                    egui::pos2(rect.right(), y),
+                ],
                 (1.0, Color32::from_rgb(80, 80, 90)),
             );
         }

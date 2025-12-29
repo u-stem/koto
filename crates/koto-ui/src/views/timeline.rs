@@ -1,6 +1,6 @@
 //! Timeline view
 
-use egui::{Ui, Color32, Rect, Pos2, Vec2};
+use egui::{Color32, Pos2, Rect, Ui, Vec2};
 
 /// Timeline view for arranging audio and MIDI regions
 pub struct TimelineView {
@@ -40,7 +40,8 @@ impl TimelineView {
     /// Render the timeline
     pub fn ui(&mut self, ui: &mut Ui) {
         let available_size = ui.available_size();
-        let (response, painter) = ui.allocate_painter(available_size, egui::Sense::click_and_drag());
+        let (response, painter) =
+            ui.allocate_painter(available_size, egui::Sense::click_and_drag());
         let rect = response.rect;
 
         // Background
@@ -87,7 +88,10 @@ impl TimelineView {
             if x >= rect.left() && x <= rect.right() {
                 // Draw tick
                 painter.line_segment(
-                    [Pos2::new(x, ruler_rect.bottom() - 8.0), Pos2::new(x, ruler_rect.bottom())],
+                    [
+                        Pos2::new(x, ruler_rect.bottom() - 8.0),
+                        Pos2::new(x, ruler_rect.bottom()),
+                    ],
                     (1.0, Color32::from_rgb(100, 100, 110)),
                 );
 

@@ -70,10 +70,7 @@ mod tests {
 
     #[test]
     fn test_simple_chain() {
-        let connections = vec![
-            (NodeId(0), NodeId(1)),
-            (NodeId(1), NodeId(2)),
-        ];
+        let connections = vec![(NodeId(0), NodeId(1)), (NodeId(1), NodeId(2))];
 
         let order = GraphScheduler::compute_order(&AudioGraph::new(), &connections);
         assert_eq!(order, vec![NodeId(0), NodeId(1), NodeId(2)]);
@@ -81,10 +78,7 @@ mod tests {
 
     #[test]
     fn test_parallel_paths() {
-        let connections = vec![
-            (NodeId(0), NodeId(2)),
-            (NodeId(1), NodeId(2)),
-        ];
+        let connections = vec![(NodeId(0), NodeId(2)), (NodeId(1), NodeId(2))];
 
         let order = GraphScheduler::compute_order(&AudioGraph::new(), &connections);
         assert!(order.len() == 3);

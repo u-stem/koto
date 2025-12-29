@@ -76,7 +76,10 @@ impl WaveformWidget {
 
         // Center line
         painter.line_segment(
-            [Pos2::new(rect.left(), center_y), Pos2::new(rect.right(), center_y)],
+            [
+                Pos2::new(rect.left(), center_y),
+                Pos2::new(rect.right(), center_y),
+            ],
             (1.0, Color32::from_rgb(60, 60, 70)),
         );
     }

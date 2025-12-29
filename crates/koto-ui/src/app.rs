@@ -1,9 +1,9 @@
 //! Main application state and UI
 
 use crate::theme::KotoTheme;
+use egui::{CentralPanel, Context, TopBottomPanel};
 use koto_audio_engine::{AudioEngine, AudioEvent};
 use koto_core::{SamplePosition, Tempo};
-use egui::{CentralPanel, TopBottomPanel, Context};
 
 /// Main application state
 pub struct KotoApp {
@@ -57,10 +57,17 @@ impl KotoApp {
                 AudioEvent::PlayheadMoved(pos) => {
                     self.playhead = pos;
                 }
-                AudioEvent::MeterUpdate { peak_left, peak_right, .. } => {
+                AudioEvent::MeterUpdate {
+                    peak_left,
+                    peak_right,
+                    ..
+                } => {
                     self.peak_meters = (peak_left, peak_right);
                 }
-                AudioEvent::TransportStateChanged { is_playing, is_recording } => {
+                AudioEvent::TransportStateChanged {
+                    is_playing,
+                    is_recording,
+                } => {
                     self.is_playing = is_playing;
                     self.is_recording = is_recording;
                 }
@@ -117,7 +124,14 @@ impl eframe::App for KotoApp {
                 // Tempo
                 ui.label("BPM:");
                 let mut bpm = self.tempo.bpm();
-                if ui.add(egui::DragValue::new(&mut bpm).speed(0.1).range(20.0..=999.0)).changed() {
+                if ui
+                    .add(
+                        egui::DragValue::new(&mut bpm)
+                            .speed(0.1)
+                            .range(20.0..=999.0),
+                    )
+                    .changed()
+                {
                     self.tempo = Tempo::new(bpm);
                     self.audio_engine.set_tempo(self.tempo);
                 }
@@ -126,7 +140,8 @@ impl eframe::App for KotoApp {
 
                 // Metronome
                 if ui.checkbox(&mut self.metronome_enabled, "🔔").changed() {
-                    self.audio_engine.set_metronome_enabled(self.metronome_enabled);
+                    self.audio_engine
+                        .set_metronome_enabled(self.metronome_enabled);
                 }
 
                 ui.separator();
@@ -186,7 +201,10 @@ impl eframe::App for KotoApp {
 
                 // Master volume
                 ui.label("Master:");
-                if ui.add(egui::Slider::new(&mut self.master_volume, 0.0..=1.0).show_value(false)).changed() {
+                if ui
+                    .add(egui::Slider::new(&mut self.master_volume, 0.0..=1.0).show_value(false))
+                    .changed()
+                {
                     self.audio_engine.set_master_volume(self.master_volume);
                 }
 

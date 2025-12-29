@@ -70,10 +70,7 @@ impl KnobWidget {
             center.x + value_angle.cos() * indicator_len,
             center.y + value_angle.sin() * indicator_len,
         );
-        painter.line_segment(
-            [center, indicator_end],
-            (2.0, Color32::WHITE),
-        );
+        painter.line_segment([center, indicator_end], (2.0, Color32::WHITE));
 
         // Center dot
         painter.circle_filled(center, 3.0, Color32::from_rgb(80, 80, 90));
