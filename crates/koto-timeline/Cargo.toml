@@ -1,0 +1,11 @@
+[package]
+name = "koto-timeline"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Timeline and arrangement for Koto DAW"
+
+[dependencies]
+koto-core.workspace = true
+serde.workspace = true
+thiserror.workspace = true

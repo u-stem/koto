@@ -1,0 +1,13 @@
+[package]
+name = "koto-ui"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "User interface for Koto DAW"
+
+[dependencies]
+koto-core.workspace = true
+koto-audio-engine = { path = "../koto-audio-engine" }
+eframe.workspace = true
+egui.workspace = true
+tracing.workspace = true

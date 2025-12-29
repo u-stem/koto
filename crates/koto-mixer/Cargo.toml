@@ -1,0 +1,10 @@
+[package]
+name = "koto-mixer"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Mixer console for Koto DAW"
+
+[dependencies]
+koto-core.workspace = true
+thiserror.workspace = true

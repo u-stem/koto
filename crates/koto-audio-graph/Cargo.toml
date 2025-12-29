@@ -1,0 +1,11 @@
+[package]
+name = "koto-audio-graph"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Audio routing graph for Koto DAW"
+
+[dependencies]
+koto-core.workspace = true
+thiserror.workspace = true
+tracing.workspace = true

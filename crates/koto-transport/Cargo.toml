@@ -1,0 +1,10 @@
+[package]
+name = "koto-transport"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Transport control for Koto DAW"
+
+[dependencies]
+koto-core.workspace = true
+thiserror.workspace = true

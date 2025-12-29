@@ -1,0 +1,28 @@
+[package]
+name = "koto-app"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Main application for Koto DAW"
+
+[[bin]]
+name = "koto"
+path = "src/main.rs"
+
+[dependencies]
+koto-core.workspace = true
+koto-audio-engine = { path = "../koto-audio-engine" }
+koto-audio-graph = { path = "../koto-audio-graph" }
+koto-midi = { path = "../koto-midi" }
+koto-transport = { path = "../koto-transport" }
+koto-mixer = { path = "../koto-mixer" }
+koto-timeline = { path = "../koto-timeline" }
+koto-project = { path = "../koto-project" }
+koto-undo = { path = "../koto-undo" }
+koto-ui = { path = "../koto-ui" }
+
+anyhow.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
+eframe.workspace = true
+egui.workspace = true

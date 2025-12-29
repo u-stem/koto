@@ -1,0 +1,10 @@
+[package]
+name = "koto-undo"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Undo/redo system for Koto DAW"
+
+[dependencies]
+koto-core.workspace = true
+thiserror.workspace = true
