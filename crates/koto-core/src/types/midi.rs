@@ -110,10 +110,7 @@ pub enum MidiMessage {
         value: u8,
     },
     /// Program Change event
-    ProgramChange {
-        channel: MidiChannel,
-        program: u8,
-    },
+    ProgramChange { channel: MidiChannel, program: u8 },
     /// Pitch Bend event
     PitchBend {
         channel: MidiChannel,
@@ -121,10 +118,7 @@ pub enum MidiMessage {
         value: i16,
     },
     /// Channel Aftertouch
-    ChannelPressure {
-        channel: MidiChannel,
-        pressure: u8,
-    },
+    ChannelPressure { channel: MidiChannel, pressure: u8 },
     /// Polyphonic Key Pressure
     PolyPressure {
         channel: MidiChannel,

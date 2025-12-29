@@ -1,7 +1,7 @@
 //! MIDI device management
 
-use midir::{MidiInput, MidiOutput};
 use koto_core::{KotoError, KotoResult};
+use midir::{MidiInput, MidiOutput};
 
 /// MIDI device info
 #[derive(Debug, Clone)]
@@ -18,8 +18,8 @@ pub struct MidiDeviceManager {
 
 impl MidiDeviceManager {
     pub fn new() -> KotoResult<Self> {
-        let midi_in = MidiInput::new("Koto MIDI Input")
-            .map_err(|e| KotoError::MidiDevice(e.to_string()))?;
+        let midi_in =
+            MidiInput::new("Koto MIDI Input").map_err(|e| KotoError::MidiDevice(e.to_string()))?;
         let midi_out = MidiOutput::new("Koto MIDI Output")
             .map_err(|e| KotoError::MidiDevice(e.to_string()))?;
 

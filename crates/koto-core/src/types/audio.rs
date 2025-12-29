@@ -157,10 +157,7 @@ impl AudioBuffer {
 
     /// Get the peak level (maximum absolute value)
     pub fn peak(&self) -> Sample {
-        self.samples
-            .iter()
-            .map(|s| s.abs())
-            .fold(0.0, f32::max)
+        self.samples.iter().map(|s| s.abs()).fold(0.0, f32::max)
     }
 }
 
@@ -189,19 +186,9 @@ impl StereoFrame {
 }
 
 /// Audio format specification
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default, Serialize, Deserialize)]
 pub struct AudioFormat {
     pub sample_rate: SampleRate,
     pub channels: ChannelCount,
     pub buffer_size: BufferSize,
-}
-
-impl Default for AudioFormat {
-    fn default() -> Self {
-        Self {
-            sample_rate: SampleRate::default(),
-            channels: ChannelCount::default(),
-            buffer_size: BufferSize::default(),
-        }
-    }
 }

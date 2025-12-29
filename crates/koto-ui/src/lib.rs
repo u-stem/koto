@@ -6,5 +6,5 @@ pub mod views;
 pub mod widgets;
 
 pub use app::*;
-pub use theme::*;
 pub use eframe;
+pub use theme::*;

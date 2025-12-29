@@ -6,14 +6,14 @@
 //! - Lock-free communication with the UI thread
 //! - Buffer management
 
-mod engine;
-mod device;
+mod buffer_pool;
 mod callback;
 mod command;
-mod buffer_pool;
+mod device;
+mod engine;
 
-pub use engine::*;
-pub use device::*;
+pub use buffer_pool::*;
 pub use callback::*;
 pub use command::*;
-pub use buffer_pool::*;
+pub use device::*;
+pub use engine::*;

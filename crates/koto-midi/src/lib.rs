@@ -1,7 +1,7 @@
 //! Koto MIDI - MIDI processing and device handling
 
-pub mod engine;
 pub mod device;
+pub mod engine;
 
-pub use engine::*;
 pub use device::*;
+pub use engine::*;

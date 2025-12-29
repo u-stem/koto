@@ -2,9 +2,9 @@
 
 use crate::{AudioCommand, AudioEvent, TransportState};
 use koto_core::SampleRate;
+use parking_lot::Mutex;
 use rtrb::{Consumer, Producer};
 use std::sync::Arc;
-use parking_lot::Mutex;
 
 /// Audio callback processor
 pub struct AudioCallback {
@@ -172,15 +172,18 @@ impl AudioCallback {
             // Generate a short click at the start of each beat
             if beat_phase < 0.01 {
                 let click_amplitude = 0.3;
-                let click_freq = if (beat_pos as i32) % self.transport.time_signature.numerator as i32 == 0 {
-                    880.0 // A5 for downbeat
-                } else {
-                    440.0 // A4 for other beats
-                };
+                let click_freq =
+                    if (beat_pos as i32) % self.transport.time_signature.numerator as i32 == 0 {
+                        880.0 // A5 for downbeat
+                    } else {
+                        440.0 // A4 for other beats
+                    };
 
                 let t = beat_phase * 100.0; // Normalize to 0-1 within click
                 let envelope = (1.0 - t).max(0.0) as f32;
-                let click = (click_freq * std::f64::consts::TAU * sample_pos / self.sample_rate.0 as f64).sin() as f32;
+                let click = (click_freq * std::f64::consts::TAU * sample_pos
+                    / self.sample_rate.0 as f64)
+                    .sin() as f32;
                 let sample = click * envelope * click_amplitude;
 
                 output[frame * 2] += sample;

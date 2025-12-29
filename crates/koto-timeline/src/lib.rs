@@ -33,7 +33,12 @@ pub struct Region {
 }
 
 impl Region {
-    pub fn new(id: RegionId, track_id: TrackId, start: SamplePosition, length: SamplePosition) -> Self {
+    pub fn new(
+        id: RegionId,
+        track_id: TrackId,
+        start: SamplePosition,
+        length: SamplePosition,
+    ) -> Self {
         Self {
             id,
             name: String::new(),

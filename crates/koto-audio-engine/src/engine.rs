@@ -4,9 +4,9 @@ use crate::{AudioCallback, AudioCommand, AudioDeviceManager, AudioEvent};
 use cpal::traits::{DeviceTrait, StreamTrait};
 use cpal::{Stream, StreamConfig};
 use koto_core::{KotoError, KotoResult, SamplePosition, SampleRate, Tempo, TimeSignature};
+use parking_lot::Mutex;
 use rtrb::RingBuffer;
 use std::sync::Arc;
-use parking_lot::Mutex;
 use tracing::{error, info};
 
 /// Ring buffer capacity for commands and events

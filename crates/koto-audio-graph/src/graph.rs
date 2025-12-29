@@ -42,7 +42,8 @@ impl AudioGraph {
     /// Remove a node from the graph
     pub fn remove_node(&mut self, id: NodeId) {
         self.nodes.remove(&id);
-        self.connections.retain(|c| c.source != id && c.target != id);
+        self.connections
+            .retain(|c| c.source != id && c.target != id);
     }
 
     /// Connect two nodes
@@ -52,7 +53,8 @@ impl AudioGraph {
 
     /// Disconnect two nodes
     pub fn disconnect(&mut self, source: NodeId, target: NodeId) {
-        self.connections.retain(|c| c.source != source || c.target != target);
+        self.connections
+            .retain(|c| c.source != source || c.target != target);
     }
 
     /// Get a node by ID
